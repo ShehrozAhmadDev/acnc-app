@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useAppSelector } from "../../../../redux/store";
 import { setCart, setShowCart } from "../../../../redux/features/cart-slice";
 import CartItemComp from "../../../../components/base/cartItemComp/cartItemComp";
+import PlaceOrderModal from "../../../../components/modals/placeOrderModal/PlaceOrderModal";
 
 const Cart = () => {
   const [isOrderOpen, setIsOrderOpen] = useState(false);
@@ -98,6 +99,8 @@ const Cart = () => {
       )}
 
     </View>
+    <PlaceOrderModal  isOpen={isOrderOpen}
+          closeModal={() => setIsOrderOpen(false) }/>
     </ScrollView>
   );
 };

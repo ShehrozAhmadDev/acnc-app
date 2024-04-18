@@ -13,6 +13,7 @@ import { getAddons } from '../../../../services/addon/getAddons';
 import { setAddon } from '../../../../redux/features/addon-slice';
 import ImageSwiper from '../../../../components/base/imageSwiper/ImageSwiper';
 import Logo from '../../../../assets/acnclogo.png';
+import Banner from '../../../../services/banner/Banner';
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -20,6 +21,24 @@ const Home = () => {
   const { user } = useAppSelector((state) => state.userReducer.value);
   const { menu, categories, filteredMenu } = useAppSelector((state) => state.menuReducer.value);
   const [openCartModal, setOpenCartModal] = useState(false);
+
+  console.log("HEREEE")
+  const [banners, setBanners] = useState([]);
+  const getAllBannerItems = async () => {
+    console.log("HEREEE")
+    try {
+      if(user?.token){
+      const data = await Banner.getAllBannerItems(user?.token);
+      console.log(data)
+      if (data?.status === 200) {
+        setBanners(data.banner);
+      }
+    }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+ 
 
 
   const handleTitlePress = (item: string) => {
@@ -53,8 +72,10 @@ const Home = () => {
 
   useEffect(() => {
     getAllMenuItems();
-    getAllAddonItems();
+    getAllAddonItems();    getAllBannerItems();
+
   }, []);
+
   useEffect(() => {
     dispatch(setProductsByCategory(selectedCategory));
   }, [selectedCategory]);

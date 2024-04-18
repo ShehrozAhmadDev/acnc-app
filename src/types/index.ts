@@ -36,6 +36,7 @@ export interface IOrders {
     address: string;
     status?: string;
     phone: string;
+    price: number;
     city: string;
     item?: {menuItem: IMenu, quantity: number, addOns: { addOnId: IAddOnItem; quantity: number }[]}[]
     createdBy?: IUser;

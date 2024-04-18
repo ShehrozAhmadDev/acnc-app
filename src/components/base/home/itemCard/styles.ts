@@ -2,7 +2,7 @@ import {StyleSheet, Platform} from 'react-native';
 
 export const styles = StyleSheet.create({
     mainContainer:{
-        width: 180,
+        width: 160,
         height: 200,
         borderRadius: 30,
         backgroundColor: '#121111',
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
         fontWeight: '400',
         marginTop: 4,
       },
-      bottomImage:{height: 200, width: 200, position:"absolute", top: -50, zIndex: 1000},
+      bottomImage:{height: 200, width: 200, position:"absolute", top: -50, zIndex: 1000, objectFit:"contain"},
       bottomSheetContainer: {
         display: 'flex',
         alignItems: 'center',

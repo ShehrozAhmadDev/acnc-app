@@ -24,6 +24,10 @@ export const store = configureStore({
     menuReducer,
     addonReducer
   },
+  middleware: getDefaultMiddleware =>
+  getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
 export const persistor = persistStore(store);
 

@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {View, Image, ViewStyle} from 'react-native';
+import {View, Image, ViewStyle, Touchable, TouchableOpacity} from 'react-native';
 import {styles} from './styles';
 import BurgerImage from '../../../../assets/Borgir-RM.png';
 import AddIcon from '../../../../assets/components/AddIcon';
@@ -23,7 +23,7 @@ const ItemCard:FC<Props> = ({item, style, setOpenCartModal}) => {
   const [isVisble, setIsVisible] = useState(false);
 
   return (
-    <View style={{...styles.mainContainer, ...style}}>
+    <TouchableOpacity style={{...styles.mainContainer, ...style}} onPress={()=>setIsVisible(true)}>
       <View style={styles.imageContainer}>
         <Image source={{ uri: item.imageUrl }} style={styles.image} alt="Burger Image" />
       </View>
@@ -51,7 +51,7 @@ const ItemCard:FC<Props> = ({item, style, setOpenCartModal}) => {
           </View>
         </View>
       </BottomSheet>
-    </View>
+    </TouchableOpacity>
   );
 };
 

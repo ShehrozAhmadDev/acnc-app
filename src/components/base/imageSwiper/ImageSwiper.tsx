@@ -1,14 +1,16 @@
-import React  from 'react'
+import React, { useEffect, useState }  from 'react'
 import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 import Deal from '../../../assets/deal.jpg'
 import Deal1 from '../../../assets/deal1.jpg';
 import Deal2 from '../../../assets/deal2.jpg';
+import Banner from '../../../services/banner/Banner';
 
 
 
 export default function ImageSwiper() {
   const images = [Deal, Deal1, Deal2];
+ 
     return (
       <View style={styles.container}>
       <SwiperFlatList
@@ -17,10 +19,10 @@ export default function ImageSwiper() {
       autoplayLoop
       index={2}
       showPagination
-      data={images}
+      data={banners}
       renderItem={({ item }) => (
-        <View style={[styles.child, { backgroundColor: item }]}>
-          <Image source={item} style={styles.image} />
+        <View style={[styles.child]}>
+          <Image source={{uri:item.imageUrl}} style={styles.image} />
       </View>
       )}
     />

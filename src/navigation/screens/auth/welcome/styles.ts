@@ -14,20 +14,20 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#000000',
   },
   flexContainer: {
+    gap: 30,
+    marginTop: 30,
     display: 'flex',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 28,
-    paddingRight: 39,
+  
   },
-  logoStyle: {
-    width: 209,
-    height: 70,
-  },
+logoStyle: {
+  width: 209,
+  height: 70,
+},
   moneyStyle: {
     width: 75,
     height: 32,
@@ -51,6 +51,15 @@ export const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 36,
+    fontFamily: 'Poppins-Bold',
+    textAlign: 'center',
+    marginBottom: 8,
+    width: '70%',
+    lineHeight: 43,
+    color: '#FFFFFF',
   },
   mainText: {
     fontSize: 36,

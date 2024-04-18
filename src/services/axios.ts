@@ -2,7 +2,7 @@ import axios, { AxiosInstance,  AxiosResponse } from 'axios';
 
 // Create an Axios instance with a base URL
 const api: AxiosInstance = axios.create({
-  baseURL: 'http://192.168.101.193:4000/api', // Replace with your API base URL
+  baseURL: 'https://food-delivery-be-q2zk.onrender.com/api', // Replace with your API base URL
   timeout: 5000, // Set a timeout for requests in milliseconds
   headers: {
     'Content-Type': 'application/json',

@@ -13,7 +13,6 @@ const Select = () => {
       defaultValue={'Recent'}
       data={countries}
       onSelect={(selectedItem, index) => {
-        console.log(selectedItem, index);
       }}
       buttonTextAfterSelection={selectedItem => {
         return selectedItem;

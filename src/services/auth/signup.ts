@@ -8,10 +8,9 @@ interface SignupResponse {
   user: object;
 }
 
-export const handleUserRegister = async (email: string, password: string): Promise<SignupResponse> => {
+export const handleUserRegister = async (fullName: string,email: string, password: string): Promise<SignupResponse> => {
   try {
-    const response = await api.post('/auth/register', { email, password });
-    console.log(response.data)
+    const response = await api.post('/auth/register', { fullName, email, password });
     return response.data as SignupResponse;
   } catch (error) {
     console.error('Error making POST request:', error);

@@ -10,6 +10,7 @@ import {handleUserRegister} from '../../../../services/auth/signup';
 const Signup: FC<ISignupProps> = ({navigation}) => {
   const [isVisble, setIsVisible] = useState(false);
   const [email, setEmail] = useState('');
+  const [fullName, setFullName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -31,15 +32,22 @@ const Signup: FC<ISignupProps> = ({navigation}) => {
     }
   };
 
+  
+  const handleFullNameChange = (value: any) => {
+    setFullName(value)
+  };
+
+
   const handleSignupUser = async () => {
     if (
       !errorMessage &&
       email &&
+      fullName &&
       !passwordErrorMessage &&
       password === confirmPassword
     ) {
       try {
-        const data = await handleUserRegister(email, password);
+        const data = await handleUserRegister(fullName, email, password);
         if (data.status === 200) {
           Alert.alert('User Signed up Successfully');
 
@@ -94,6 +102,12 @@ const Signup: FC<ISignupProps> = ({navigation}) => {
       </View>
       <View style={styles.loginContainer}>
         <View style={styles.inputContainer}>
+        <Input
+            placeholder={'Full Name'}
+            value={fullName}
+            onChange={handleFullNameChange}
+            multiline={false}
+          />
           <Input
             placeholder={'Email or Phone Number'}
             value={email}

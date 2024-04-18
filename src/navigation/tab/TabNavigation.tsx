@@ -18,7 +18,7 @@ const TabNavigator = () => {
   const screenIcons = {
     Home: HomeIcon,
     Cart:WalletIcon ,
-    Wallet: ChartsIcon,
+    Order: ChartsIcon,
     Profile: ProfileIcon,
   };
   return (
@@ -36,8 +36,8 @@ const TabNavigator = () => {
         options={{header: () => <ProfileHeader />}}
       />
       <Tab.Screen
-        name="Wallet"
-        component={Home}
+        name="Order"
+        component={Order}
         options={{header: () => <ProfileHeader />}}
       />
       <Tab.Screen

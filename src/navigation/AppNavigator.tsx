@@ -5,7 +5,6 @@ import { useAppSelector } from '../redux/store';
 
 const AppNavigator = () => {
   const { user } = useAppSelector((state) => state.userReducer.value);
-  console.log(user)
   return <>{!user?.token ? <AuthNavigation /> : <MainNavigation />}</>;
 };
 

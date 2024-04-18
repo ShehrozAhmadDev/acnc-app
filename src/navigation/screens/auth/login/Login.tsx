@@ -18,6 +18,8 @@ const Login: FC<ILoginProps> = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [errorText, setErroText] = useState('');
+
   const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
 
   const {login} = useAuth();
@@ -67,13 +69,16 @@ const Login: FC<ILoginProps> = ({navigation}) => {
           })
         );
         // login(data.email, data.token);
+
         setIsVisible(true);
       } else {
+        setErroText("In else")
         Alert.alert('Invalid Information');
         console.log('Invalid Information');
       }
     } catch (error) {
-      Alert.alert('Invalid Information');
+      // setErroText(JSON.stringify(error))
+      Alert.alert(JSON.stringify(error.message))
     }
   };
 
@@ -122,6 +127,7 @@ const Login: FC<ILoginProps> = ({navigation}) => {
             handleLogin();
           }}
         />
+        <Text>{errorText}</Text>
       </View>
       <View style={styles.bottomContainer}>
         <Text style={styles.bottomMainText}>
