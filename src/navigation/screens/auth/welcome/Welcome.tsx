@@ -15,7 +15,7 @@ const Welcome: FC<IWelcomeProps> = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.flexContainer}>
-        <Image source={Logo} style={styles.logoStyle} resizeMode="cover" />
+        <Image source={Logo} style={styles.logoStyle} resizeMode="contain" />
         <Text style={styles.headerText}>ACNC Kitchen</Text>
       </View>
 

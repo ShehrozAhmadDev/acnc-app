@@ -68,8 +68,6 @@ const Login: FC<ILoginProps> = ({navigation}) => {
             token: data?.token
           })
         );
-        // login(data.email, data.token);
-
         setIsVisible(true);
       } else {
         setErroText("In else")
